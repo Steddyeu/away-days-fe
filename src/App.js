@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import Hero from "./components/Hero";
 import SearchStadiumsList from "./components/SearchStadiumsList";
 import StadiumsList from "./components/StadiumsList";
+import IndividualStadium from './components/IndividualStadium'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Hero path="/" />
 
         <StadiumsList path="/countries/:country" />
+        <IndividualStadium path='/stadiums/:stadiumId' />
       </Router>
     </div>
   );

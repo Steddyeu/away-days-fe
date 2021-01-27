@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../apiReq";
 import Load from "./Load";
+import { Link } from "@reach/router";
+
 export default class SearchStadiumsList extends Component {
   state = {
     stadiums: [],
@@ -35,6 +37,7 @@ export default class SearchStadiumsList extends Component {
         <div>
           {this.state.filteredStadiums.map((stadium) => {
             return (
+              <Link to={`/stadiums/${stadium.id}`}>
               <div className="stadium-card" key={stadium.id}>
                 <img className="club-logo" src={stadium.logo} alt='club logo' />
                 <div className="club-container">
@@ -42,9 +45,11 @@ export default class SearchStadiumsList extends Component {
                   <p className="stadium-club">{stadium.club}</p>
                 </div>
               </div>
+              </Link>
             );
           })}
         </div>
+
       );
     }
   }

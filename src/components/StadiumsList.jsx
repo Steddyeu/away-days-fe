@@ -29,6 +29,7 @@ export default class StadiumsList extends Component {
         <div className= 'stadiums-list-country'>
           {this.state.stadiums.map((stadium) => {
             return (
+              <Link to={`/stadiums/${stadium.id}`}>
               <div className="country-stadium-card" key={stadium.id}>
                 <img
                   className="country-club-logo"
@@ -43,6 +44,7 @@ export default class StadiumsList extends Component {
                   {commaNumber(stadium.capacity)}
                 </p>
               </div>
+              </Link>
             );
           })}
         </div>
