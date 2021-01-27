@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  outline: none;
 }
 body {
   /* background: linear-gradient(90deg, rgba(12, 61, 11, 0.3) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 0), rgb(22, 187, 36);
 background-size:50px auto; */
-  background-image: url("./assets/footballgrass.jpeg");
+  background-image: url('./assets/footballgrass.jpeg');
 }
 
 .App {
@@ -19,11 +21,13 @@ background-size:50px auto; */
 .hero {
   width: 100vw;
   height: 100vh;
-  background-image: url("./assets/background.jpeg");
+  background-image: url('./assets/background.jpeg');
   text-align: center;
+  background-size: cover;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-repeat: no-repeat;
 }
 
 .hero-title {
@@ -89,6 +93,12 @@ font-size: 3em;
   transition: all 0.5s ease;
 }
 
+.search-stadiums-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* searchstadiumlist */
 .stadium-card {
   display: flex;
@@ -98,12 +108,12 @@ font-size: 3em;
   border-width: 1px;
   border-color: rgb(2, 71, 2);
   border-radius: 10px;
-  /* background-color: rgb(5, 83, 5); */
   background-color: rgb(5, 5, 128);
   color: aliceblue;
   opacity: 80%;
   padding: 5px 5px 5px 5px;
   width: 50vw;
+  align-items: center;
 }
 .stadium-card:hover {
   color: white;
@@ -136,6 +146,23 @@ font-size: 3em;
   margin-left: 0.1em;
 }
 
+@media screen and (max-width: 900px) {
+  .stadium-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  .stadium-club {
+    display: none;
+  }
+  .club-logo {
+    width: 4em;
+    height: 4em;
+    margin-right: 1em;
+  }
+}
+
 /* Stadiums List */
 .stadiums-list-country {
   display: flex;
@@ -143,12 +170,18 @@ font-size: 3em;
   flex-direction: column;
   margin-top: 1em;
   margin-bottom: 1em;
+  font-size: 0.5em;
+}
+
+.stadiums-list-header {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgb(163, 162, 162), 0 0 25px white, 0 0 5px white;
 }
 
 .country-stadium-card {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   margin-top: 1em;
   border: solid;
   border-width: 1px;
@@ -159,7 +192,7 @@ font-size: 3em;
   color: aliceblue;
   opacity: 80%;
   padding: 5px 5px 5px 5px;
-  width: 60vw;
+  width: 90vw;
   align-items: center;
 }
 .country-stadium-card:hover {
@@ -181,13 +214,6 @@ font-size: 3em;
   text-transform: capitalize;
 }
 
-.country-stadium-club {
-  font-style: italic;
-  margin-left: 0.1em;
-  margin-right: 2em;
-  font-size: 1em;
-}
-
 .country-club-logo {
   width: 8em;
   height: 8em;
@@ -199,7 +225,7 @@ font-size: 3em;
   background-color: rgb(153, 149, 149);
   border-radius: 40px;
   padding: 10px;
-  font-size: 2em;
+  font-size: 1em;
   margin-top: 0.2em;
   margin-left: 0.2em;
   opacity: 80%;
@@ -208,13 +234,125 @@ font-size: 3em;
 }
 
 .stadium-capacity {
-  margin-left: auto;
+  /* margin-left: auto; */
   margin-right: 1em;
   font-size: 2.5em;
+  margin-left: auto;
 }
 
 .home-button:hover {
   background-color: rgb(226, 226, 226);
   opacity: 100%;
   transition: all 0.2s ease;
+}
+
+@media screen and (min-width: 800px) {
+  .stadiums-list-country {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .country-stadium-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 28vh;
+    height: 35vh;
+    font-size: 1.5em;
+    margin: 1em;
+  }
+
+  .stadium-capacity {
+    font-size: 2.5em;
+    color: black;
+    background: white;
+    margin-top: 1em;
+    margin-right: 0em;
+    border-radius: 10px;
+    padding: 0.1em;
+    margin-left: 0;
+  }
+  .country-stadium-name {
+    font-size: 1.8em;
+    color: rgb(224, 228, 224);
+    text-transform: capitalize;
+    text-align: center;
+    padding: 0.2em;
+    color: black;
+    background: white;
+    border-radius: 10px;
+    margin-top: 1em;
+  }
+
+  .country-club-logo {
+    margin-right: 1em;
+    background: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .country-stadium-card {
+    background-image: none !important;
+    background-color: rgb(5, 5, 128);
+  }
+}
+
+/* indiviual stadium */
+
+.individual-stadium-picture-container {
+  background-image: url('https://www.stadiumguide.com/wp-content/uploads/villapark_front.jpg');
+  background-size: cover;
+  height: 40vh;
+  font-size: 0.9em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.individual-stadium-club-logo {
+  height: 6em;
+  width: 6em;
+}
+
+.individual-stadium-info-container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.individual-stadium-home-button {
+  margin-right: 100px;
+  background-color: rgb(153, 149, 149);
+  border-radius: 40px;
+  padding: 10px;
+  font-size: 1em;
+  opacity: 80%;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.individual-stadium-home-button:hover {
+  background-color: rgb(226, 226, 226);
+  opacity: 100%;
+  transition: all 0.2s ease;
+}
+
+.individual-stadium-club-name {
+  padding: 0.1em;
+  text-transform: uppercase;
+  background-color: #fafafa;
+  border: 5px solid;
+  border-radius: 20px;
+  margin-top: 0.5em;
+}
+
+.sign-nail-icon {
+  font-size: 1rem;
+  margin-bottom: 0.2em;
+  padding: 0.3em;
 }

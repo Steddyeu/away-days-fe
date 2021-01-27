@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import * as api from "../apiReq";
-import Load from "./Load";
-import { Link } from "@reach/router";
+import React, { Component } from 'react';
+import * as api from '../apiReq';
+import Load from './Load';
+import { Link } from '@reach/router';
 
 export default class SearchStadiumsList extends Component {
   state = {
@@ -34,22 +34,25 @@ export default class SearchStadiumsList extends Component {
       return <Load />;
     } else {
       return (
-        <div>
+        <div className={'search-stadiums-container'}>
           {this.state.filteredStadiums.map((stadium) => {
             return (
-              <Link to={`/stadiums/${stadium.id}`}>
-              <div className="stadium-card" key={stadium.id}>
-                <img className="club-logo" src={stadium.logo} alt='club logo' />
-                <div className="club-container">
-                  <p className="stadium-name">{stadium.name}</p>
-                  <p className="stadium-club">{stadium.club}</p>
+              <Link to={`/stadiums/${stadium.stadium_id}`}>
+                <div className="stadium-card" key={stadium.stadoum_id}>
+                  <img
+                    className="club-logo"
+                    src={stadium.logo}
+                    alt="club logo"
+                  />
+                  <div className="club-container">
+                    <p className="stadium-name">{stadium.name}</p>
+                    <p className="stadium-club">{stadium.club}</p>
+                  </div>
                 </div>
-              </div>
               </Link>
             );
           })}
         </div>
-
       );
     }
   }

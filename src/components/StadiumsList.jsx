@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import * as api from "../apiReq";
-import Load from "./Load";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
- import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import commaNumber from 'comma-number'
-import { Link } from "@reach/router";
+import React, { Component } from 'react';
+import * as api from '../apiReq';
+import Load from './Load';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import commaNumber from 'comma-number';
+import { Link } from '@reach/router';
 
 export default class StadiumsList extends Component {
   state = {
@@ -25,29 +25,41 @@ export default class StadiumsList extends Component {
     } else {
       return (
         <div>
-          <Link to='/'> <button className='home-button'>Home</button></Link>
-        <div className= 'stadiums-list-country'>
-          {this.state.stadiums.map((stadium) => {
-            return (
-              <Link to={`/stadiums/${stadium.id}`}>
-              <div className="country-stadium-card" key={stadium.id}>
-                <img
-                  className="country-club-logo"
-                  src={stadium.logo}
-                  alt="club logo"
-                />
-                <div className="country-club-container">
-                  <p className="country-stadium-name">{stadium.name}</p>
-                </div>
-                <p className="stadium-capacity">
-                  <FontAwesomeIcon icon={faUsers} />{" "}
-                  {commaNumber(stadium.capacity)}
-                </p>
-              </div>
-              </Link>
-            );
-          })}
-        </div>
+          <Link to="/">
+            {' '}
+            <button className="home-button">Home</button>
+          </Link>
+          <h1 className={'stadiums-list-header'}>
+            Stadiums in {this.props.country}{' '}
+          </h1>
+          <div className="stadiums-list-country">
+            {this.state.stadiums.map((stadium) => {
+              return (
+                <Link to={`/stadiums/${stadium.stadium_id}`}>
+                  <div
+                    className="country-stadium-card"
+                    key={stadium.stadium_id}
+                    style={{
+                      backgroundImage: `url(${stadium.picture})`,
+                    }}
+                  >
+                    <img
+                      className="country-club-logo"
+                      src={stadium.logo}
+                      alt="club logo"
+                    />
+                    <div className="country-club-container">
+                      <p className="country-stadium-name">{stadium.name}</p>
+                    </div>
+                    <p className="stadium-capacity">
+                      <FontAwesomeIcon icon={faUsers} />{' '}
+                      {commaNumber(stadium.capacity)}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       );
     }

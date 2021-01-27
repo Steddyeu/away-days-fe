@@ -1,13 +1,46 @@
-import React, { Component } from 'react'
-import { Link } from "@reach/router";
+import React, { Component } from 'react';
+import { Link } from '@reach/router';
+import * as api from '../apiReq';
+import Load from './Load';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default class IndividualStadium extends Component {
+  state = { stadium: {}, isLoading: true };
+
+  componentDidMount() {
+    const id = this.props.stadiumId;
+    api.getStadiumById(id).then((stadium) => {
+      this.setState({ stadium, isLoading: false });
+    });
+  }
+
   render() {
-    return (
-      <div>
-        <Link to='/'> <button className='home-button'>Home</button></Link>
-        <h1>hello from individual stadium</h1>
-      </div>
-    )
+    if (this.state.isLoading) {
+      return <Load />;
+    } else {
+      return (
+        <div
+          style={{ backgroundImage: `url(${this.state.stadium.picture})` }}
+          className="individual-stadium-picture-container"
+        >
+          <Link className={'individual-stadium-home-button-link'} to="/">
+            <button className={'individual-stadium-home-button'}>Home</button>
+          </Link>
+
+          <div className={'individual-stadium-info-container'}>
+            <img
+              src={this.state.stadium.logo}
+              className={'individual-stadium-club-logo'}
+            ></img>
+            <h1 className={'individual-stadium-club-name'}>
+              <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
+              {this.state.stadium.name}
+              <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
+            </h1>
+          </div>
+        </div>
+      );
+    }
   }
 }

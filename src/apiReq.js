@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const getStadiums = () => {
   return axios
-    .get("https://frozen-scrubland-34339.herokuapp.com/api/stadiums")
+    .get('https://frozen-scrubland-34339.herokuapp.com/api/stadiums')
     .then((res) => {
       return res.data.stadiums;
     });
@@ -19,13 +19,13 @@ export const getStadiumsByCountry = (country) => {
     });
 };
 
-export const getStadiumByName = (stadiumId) => {
+export const getStadiumById = (stadiumId) => {
   return axios
     .get(
       `https://frozen-scrubland-34339.herokuapp.com/api/stadiums/${stadiumId}`
     )
     .then((res) => {
       console.log(res.data);
-      //return res.data;
+      return res.data.stadium;
     });
 };
