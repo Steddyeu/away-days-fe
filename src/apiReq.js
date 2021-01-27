@@ -8,3 +8,12 @@ export const getStadiums = () => {
     });
 };
 
+export const getStadiumsByCountry = (country) => {
+  return axios
+    .get(`https://frozen-scrubland-34339.herokuapp.com/api/countries/${country}`)
+    .then((res) => {
+      console.log(res.data.stadiums)
+      return res.data.stadiums;
+    });
+};
+
