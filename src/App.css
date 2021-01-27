@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  /* background: linear-gradient(90deg, rgba(12, 61, 11, 0.3) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 0), rgb(22, 187, 36);
+background-size:50px auto; */
+  background-image: url("./assets/footballgrass.jpeg");
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/background.jpeg");
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-title {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(163, 162, 162), 0 0 25px white, 0 0 5px white;
+  font-size: 8em;
+}
+
+/* .hero-subtitle {
+color: rgb(223, 217, 217);
+text-shadow: 1px 1px 2px rgb(124, 122, 122), 0 0 25px rgb(192, 190, 190), 0 0 5px rgb(184, 184, 184);
+font-size: 3em;
+} */
+
+.flags-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flags {
+  width: 4.5em;
+  margin-right: 5px;
+  border-radius: 50%;
+  padding: none;
+  height: 4.5em;
+  opacity: 50%;
+  transition: all 0.3s ease;
+}
+
+.flags:hover {
+  opacity: 100%;
+  color: white;
+  box-shadow: 0 6px 20px 0 white, 0 6px 20px 0 whitesmoke;
+  transition: all 0.3s ease;
+}
+
+.search-box {
+  margin-top: 10px;
+  border-radius: 40px;
+  padding: 1em;
+  outline: none;
+  opacity: 80%;
+  color: white;
+  background-color: rgb(13, 99, 32);
+  margin-top: 5em;
+  width: 20em;
+  border: none;
+  transition: all 0.5s ease;
+}
+
+.search-box::placeholder {
+  color: white;
+}
+
+.search-box:focus {
+  box-shadow: 0 6px 20px 0 white, 0 6px 20px 0 rgb(168, 165, 165);
+  border: 1px solid;
+  border-color: white;
+  transition: all 0.5s ease;
+}
+
+/* searchstadiumlist */
+.stadium-card {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(2, 71, 2);
+  border-radius: 10px;
+  /* background-color: rgb(5, 83, 5); */
+  background-color: rgb(5, 5, 128);
+  color: aliceblue;
+  opacity: 80%;
+  padding: 5px 5px 5px 5px;
+  width: 50vw;
+}
+.stadium-card:hover {
+  color: white;
+  box-shadow: 0 6px 20px 0 white, 0 6px 20px 0 whitesmoke;
+  transition: all 0.3s ease;
+  border: solid;
+  border-color: rgb(2, 71, 2);
+  opacity: 100%;
+}
+
+.club-container {
+  display: flex;
+  flex-direction: column;
+}
+.stadium-name {
+  font-size: 3em;
+  color: rgb(224, 228, 224);
+  text-transform: capitalize;
+}
+
+.club-logo {
+  width: 4em;
+  height: 4em;
+  margin-right: 1em;
+}
+
+.stadium-club {
+  text-align: left;
+  font-style: italic;
+  margin-left: 0.1em;
+}
