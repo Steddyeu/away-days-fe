@@ -305,10 +305,6 @@ font-size: 3em;
 
 /* indiviual stadium */
 
-.individual-stadium-page-container {
-  background: rgb(218 41 28);
-}
-
 .individual-stadium-picture-container {
   background-image: url('https://www.stadiumguide.com/wp-content/uploads/villapark_front.jpg');
   background-size: cover;
@@ -388,4 +384,9 @@ font-size: 3em;
   font-size: 0.8rem;
   width: 90vw;
   text-align: center;
+}
+
+.map-container{
+  background-color: white;
+ 
 }

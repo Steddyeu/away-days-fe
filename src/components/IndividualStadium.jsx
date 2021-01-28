@@ -4,6 +4,8 @@ import * as api from '../apiReq';
 import Load from './Load';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import PubsMap from './PubsMap';
+
 
 export default class IndividualStadium extends Component {
   state = { stadium: {}, isLoading: true };
@@ -20,34 +22,43 @@ export default class IndividualStadium extends Component {
       return <Load />;
     } else {
       return (
-        <div className={'individual-stadium-page-container'}>
+        <div
+          className={"individual-stadium-page-container"}
+          style={{ backgroundColor: `${this.state.stadium.color}` }}
+        >
           <div
             style={{ backgroundImage: `url(${this.state.stadium.picture})` }}
             className="individual-stadium-picture-container"
           >
-            <Link className={'individual-stadium-home-button-link'} to="/">
-              <button className={'individual-stadium-home-button'}>Home</button>
+            <Link className={"individual-stadium-home-button-link"} to="/">
+              <button className={"individual-stadium-home-button"}>Home</button>
             </Link>
 
-            <div className={'individual-stadium-info-container'}>
+            <div className={"individual-stadium-info-container"}>
               <img
                 src={this.state.stadium.logo}
-                className={'individual-stadium-club-logo'}
+                className={"individual-stadium-club-logo"}
               ></img>
-              <h1 className={'individual-stadium-club-name'}>
-                <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
+              <h1 className={"individual-stadium-club-name"}>
+                <FontAwesomeIcon className={"sign-nail-icon"} icon={faCircle} />
                 {this.state.stadium.name}
-                <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
+                <FontAwesomeIcon className={"sign-nail-icon"} icon={faCircle} />
               </h1>
             </div>
           </div>
-          <div className={'individual-stadium-description-container'}>
-            <h2 className={'individual-stadium-description-header'}>
+          <div className={"individual-stadium-description-container"}>
+            <h2 className={"individual-stadium-description-header"}>
               Description
             </h2>
-            <p className={'individual-stadium-description'}>
+            <p className={"individual-stadium-description"}>
               {this.state.stadium.description}
             </p>
+          </div>
+          <div className="map-container">
+            <PubsMap
+              lat={this.state.stadium.latitude}
+              long={this.state.stadium.longitude}
+            />
           </div>
         </div>
       );
