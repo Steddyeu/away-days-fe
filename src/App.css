@@ -187,10 +187,8 @@ font-size: 3em;
   border-width: 1px;
   border-color: rgb(2, 71, 2);
   border-radius: 10px;
-  /* background-color: rgb(5, 83, 5); */
   background-color: rgb(5, 5, 128);
   color: aliceblue;
-  opacity: 80%;
   padding: 5px 5px 5px 5px;
   width: 90vw;
   align-items: center;
@@ -209,7 +207,7 @@ font-size: 3em;
   flex-direction: row;
 }
 .country-stadium-name {
-  font-size: 2em;
+  font-size: 1.5em;
   color: rgb(224, 228, 224);
   text-transform: capitalize;
 }
@@ -236,7 +234,7 @@ font-size: 3em;
 .stadium-capacity {
   /* margin-left: auto; */
   margin-right: 1em;
-  font-size: 2.5em;
+  font-size: 1.5em;
   margin-left: auto;
 }
 
@@ -256,17 +254,22 @@ font-size: 3em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 28vh;
-    height: 35vh;
+    width: 30vh;
+    height: 40vh;
     font-size: 1.5em;
     margin: 1em;
+    opacity: 80%;
+  }
+
+  .country-stadium-card:hover {
+    opacity: 100%;
   }
 
   .stadium-capacity {
     font-size: 2.5em;
     color: black;
     background: white;
-    margin-top: 1em;
+    margin-top: 0.5em;
     margin-right: 0em;
     border-radius: 10px;
     padding: 0.1em;
@@ -281,12 +284,15 @@ font-size: 3em;
     color: black;
     background: white;
     border-radius: 10px;
-    margin-top: 1em;
+    margin-top: 0.5em;
   }
 
   .country-club-logo {
     margin-right: 1em;
     background: none;
+    background: white;
+    padding: 1em;
+    border-radius: 50%;
   }
 }
 
@@ -299,12 +305,18 @@ font-size: 3em;
 
 /* indiviual stadium */
 
+.individual-stadium-page-container {
+  background: rgb(218 41 28);
+}
+
 .individual-stadium-picture-container {
   background-image: url('https://www.stadiumguide.com/wp-content/uploads/villapark_front.jpg');
   background-size: cover;
-  height: 40vh;
+  height: 55vh;
   font-size: 0.9em;
   width: 100%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -355,4 +367,25 @@ font-size: 3em;
   font-size: 1rem;
   margin-bottom: 0.2em;
   padding: 0.3em;
+}
+
+.individual-stadium-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.individual-stadium-description-header {
+  text-align: center;
+  color: white;
+}
+
+.individual-stadium-description {
+  margin-top: 1em;
+  color: white;
+  /* background-color: whitesmoke; */
+  font-size: 0.8rem;
+  width: 90vw;
+  text-align: center;
 }

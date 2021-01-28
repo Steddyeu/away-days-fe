@@ -20,24 +20,34 @@ export default class IndividualStadium extends Component {
       return <Load />;
     } else {
       return (
-        <div
-          style={{ backgroundImage: `url(${this.state.stadium.picture})` }}
-          className="individual-stadium-picture-container"
-        >
-          <Link className={'individual-stadium-home-button-link'} to="/">
-            <button className={'individual-stadium-home-button'}>Home</button>
-          </Link>
+        <div className={'individual-stadium-page-container'}>
+          <div
+            style={{ backgroundImage: `url(${this.state.stadium.picture})` }}
+            className="individual-stadium-picture-container"
+          >
+            <Link className={'individual-stadium-home-button-link'} to="/">
+              <button className={'individual-stadium-home-button'}>Home</button>
+            </Link>
 
-          <div className={'individual-stadium-info-container'}>
-            <img
-              src={this.state.stadium.logo}
-              className={'individual-stadium-club-logo'}
-            ></img>
-            <h1 className={'individual-stadium-club-name'}>
-              <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
-              {this.state.stadium.name}
-              <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
-            </h1>
+            <div className={'individual-stadium-info-container'}>
+              <img
+                src={this.state.stadium.logo}
+                className={'individual-stadium-club-logo'}
+              ></img>
+              <h1 className={'individual-stadium-club-name'}>
+                <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
+                {this.state.stadium.name}
+                <FontAwesomeIcon className={'sign-nail-icon'} icon={faCircle} />
+              </h1>
+            </div>
+          </div>
+          <div className={'individual-stadium-description-container'}>
+            <h2 className={'individual-stadium-description-header'}>
+              Description
+            </h2>
+            <p className={'individual-stadium-description'}>
+              {this.state.stadium.description}
+            </p>
           </div>
         </div>
       );
