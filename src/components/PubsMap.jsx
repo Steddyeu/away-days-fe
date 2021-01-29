@@ -3,9 +3,13 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper} from "google-maps-react";
 import * as api from "../apiReq";
 import Load from "./Load";
 import key from '../key'
+import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 export class PubsMap extends Component {
   state = {
     pubs: [],
+    selectedPlace: {},
+    activeMarker: {},
+    showingInfoWindow: false,
     isLoading: true,
   };
 
@@ -15,6 +19,15 @@ export class PubsMap extends Component {
       this.setState({ pubs, isLoading: false });
     });
   }
+
+  onMarkerClick = (props, marker, event) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    });
+  }
+
 
   render() {
     const {google} = this.props
@@ -45,26 +58,36 @@ export class PubsMap extends Component {
           style={style}
           containerStyle={containerStyle}
         >
-          <Marker onClick={this.onMarkerClick} name={"Current location"} />
+          <Marker onClick={this.onMarkerClick} name={"Current location"} icon={{
+            url: "https://www.flaticon.com/svg/vstatic/svg/704/704892.svg?token=exp=1611937063~hmac=8e12531557c417c99c0611f1462469ea",
+            anchor: new google.maps.Point(10, 10),
+            scaledSize: new google.maps.Size(34, 34)
+          }}/>
           {this.state.pubs.map((pub) => {
             return (
               <Marker
-                name={pub.name}
                 position={{ lat: pub.lat, lng: pub.long }}
-                color={'blue'}
+                onClick={this.onMarkerClick}
+                name={pub.name}
+              
                 icon={{
                   url: "https://www.flaticon.com/svg/vstatic/svg/931/931949.svg?token=exp=1611935294~hmac=9b17581f5a88529a494b6022f3359be0",
-                  anchor: new google.maps.Point(32, 32),
+                  anchor: new google.maps.Point(10, 10),
                   scaledSize: new google.maps.Size(34, 34)
                 }}
               />
               
             );
           })}
-
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div></div>
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}>
+            <div>
+              <p className='marker-text'>{this.state.selectedPlace.name}</p>
+            </div>
           </InfoWindow>
+
+          
         </Map>
       );
     }
