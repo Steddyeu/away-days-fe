@@ -30,9 +30,7 @@ export default class IndividualStadium extends Component {
             style={{ backgroundImage: `url(${this.state.stadium.picture})` }}
             className="individual-stadium-picture-container"
           >
-            <Link className={"individual-stadium-home-button-link"} to="/">
-              <button className={"individual-stadium-home-button"}>Home</button>
-            </Link>
+           
 
             <div className={"individual-stadium-info-container"}>
               <img
@@ -58,8 +56,12 @@ export default class IndividualStadium extends Component {
             <PubsMap
               lat={this.state.stadium.latitude}
               long={this.state.stadium.longitude}
+              id={this.state.stadium.stadium_id}
             />
           </div>
+          <Link className={"individual-stadium-home-button-link"} to="/">
+            <button className={"individual-stadium-home-button"}>Home page</button>
+          </Link>
         </div>
       );
     }

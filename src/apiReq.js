@@ -31,13 +31,12 @@ export const getStadiumById = (stadiumId) => {
 };
 
 
-export const getPubs = (lat, long) => {
+export const getPubs = (id) => {
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${long}&radius=1000&type=bar&key=AIzaSyB12YVrfE3v1VZ51xmdJFXeXFfS1QwaIfk`
+      `https://frozen-scrubland-34339.herokuapp.com/api/pubs/${id}`
     )
     .then((res) => {
-      console.log(res);
-      return res.results;
+      return res.data.pubs;
     });
 }
