@@ -15,6 +15,7 @@ export class PubsMap extends Component {
 
   componentDidMount() {
     const id = this.props.id;
+    console.log(this.props)
     api.getPubs(id).then((pubs) => {
       this.setState({ pubs, isLoading: false });
     });
@@ -58,7 +59,7 @@ export class PubsMap extends Component {
           style={style}
           containerStyle={containerStyle}
         >
-          <Marker onClick={this.onMarkerClick} name={"Current location"} icon={{
+          <Marker onClick={this.onMarkerClick} name={this.props.stadiumName} icon={{
             url: "https://www.flaticon.com/svg/vstatic/svg/704/704892.svg?token=exp=1611937063~hmac=8e12531557c417c99c0611f1462469ea",
             anchor: new google.maps.Point(10, 10),
             scaledSize: new google.maps.Size(34, 34)

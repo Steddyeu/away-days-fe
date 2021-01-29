@@ -57,6 +57,7 @@ export default class IndividualStadium extends Component {
               lat={this.state.stadium.latitude}
               long={this.state.stadium.longitude}
               id={this.state.stadium.stadium_id}
+              stadiumName={this.state.stadium.name}
             />
           </div>
           <Link className={"individual-stadium-home-button-link"} to="/">
