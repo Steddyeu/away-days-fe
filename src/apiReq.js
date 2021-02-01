@@ -40,3 +40,23 @@ export const getPubs = (id) => {
       return res.data.pubs;
     });
 }
+
+
+export const getCommentsById = (id) => {
+  return axios
+  .get(
+    `https://frozen-scrubland-34339.herokuapp.com/api/stadiums/${id}/comments`
+  )
+  
+  .then((res) => {
+    return res.data.comments
+  })
+}
+
+export const postComment = (comment, id) => {
+  return axios.post(
+    `https://frozen-scrubland-34339.herokuapp.com/api/stadiums/${id}/comments`, comment)
+    .then((res) => {
+      return res.data.newComment
+    })
+}

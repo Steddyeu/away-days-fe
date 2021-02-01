@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper} from "google-maps-react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import * as api from "../apiReq";
 import Load from "./Load";
-import key from '../key'
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import key from "../key";
 export class PubsMap extends Component {
   state = {
     pubs: [],
@@ -15,7 +14,6 @@ export class PubsMap extends Component {
 
   componentDidMount() {
     const id = this.props.id;
-    console.log(this.props)
     api.getPubs(id).then((pubs) => {
       this.setState({ pubs, isLoading: false });
     });
@@ -27,11 +25,10 @@ export class PubsMap extends Component {
       activeMarker: marker,
       showingInfoWindow: true,
     });
-  }
-
+  };
 
   render() {
-    const {google} = this.props
+    const { google } = this.props;
 
     const style = {
       position: "relative",
@@ -59,36 +56,39 @@ export class PubsMap extends Component {
           style={style}
           containerStyle={containerStyle}
         >
-          <Marker onClick={this.onMarkerClick} name={this.props.stadiumName} icon={{
-            url: "https://www.flaticon.com/svg/vstatic/svg/704/704892.svg?token=exp=1611937063~hmac=8e12531557c417c99c0611f1462469ea",
-            anchor: new google.maps.Point(10, 10),
-            scaledSize: new google.maps.Size(34, 34)
-          }}/>
+          <Marker
+            onClick={this.onMarkerClick}
+            name={this.props.stadiumName}
+            icon={{
+              url:
+                "https://www.flaticon.com/svg/vstatic/svg/704/704892.svg?token=exp=1611937063~hmac=8e12531557c417c99c0611f1462469ea",
+              anchor: new google.maps.Point(10, 10),
+              scaledSize: new google.maps.Size(34, 34),
+            }}
+          />
           {this.state.pubs.map((pub) => {
             return (
               <Marker
                 position={{ lat: pub.lat, lng: pub.long }}
                 onClick={this.onMarkerClick}
                 name={pub.name}
-              
                 icon={{
-                  url: "https://www.flaticon.com/svg/vstatic/svg/931/931949.svg?token=exp=1611935294~hmac=9b17581f5a88529a494b6022f3359be0",
+                  url:
+                    "https://www.flaticon.com/svg/vstatic/svg/931/931949.svg?token=exp=1611935294~hmac=9b17581f5a88529a494b6022f3359be0",
                   anchor: new google.maps.Point(10, 10),
-                  scaledSize: new google.maps.Size(34, 34)
+                  scaledSize: new google.maps.Size(34, 34),
                 }}
               />
-              
             );
           })}
           <InfoWindow
             marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}>
+            visible={this.state.showingInfoWindow}
+          >
             <div>
-              <p className='marker-text'>{this.state.selectedPlace.name}</p>
+              <p className="marker-text">{this.state.selectedPlace.name}</p>
             </div>
           </InfoWindow>
-
-          
         </Map>
       );
     }

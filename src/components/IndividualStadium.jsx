@@ -5,6 +5,7 @@ import Load from './Load';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import PubsMap from './PubsMap';
+import Comments from './Comments';
 
 
 export default class IndividualStadium extends Component {
@@ -36,6 +37,7 @@ export default class IndividualStadium extends Component {
               <img
                 src={this.state.stadium.logo}
                 className={"individual-stadium-club-logo"}
+                alt='club logo'
               ></img>
               <h1 className={"individual-stadium-club-name"}>
                 <FontAwesomeIcon className={"sign-nail-icon"} icon={faCircle} />
@@ -59,6 +61,9 @@ export default class IndividualStadium extends Component {
               id={this.state.stadium.stadium_id}
               stadiumName={this.state.stadium.name}
             />
+          </div>
+          <div>
+            <Comments id={this.props.stadiumId}/>
           </div>
           <Link className={"individual-stadium-home-button-link"} to="/">
             <button className={"individual-stadium-home-button"}>Home page</button>

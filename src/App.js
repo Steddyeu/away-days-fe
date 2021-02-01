@@ -1,7 +1,6 @@
 import "./App.css";
 import { Router } from "@reach/router";
 import Hero from "./components/Hero";
-import SearchStadiumsList from "./components/SearchStadiumsList";
 import StadiumsList from "./components/StadiumsList";
 import IndividualStadium from './components/IndividualStadium'
 
