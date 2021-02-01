@@ -19,18 +19,24 @@ export default class Comments extends Component {
   }
 
   addComment = (newComment) => {
-    console.log('newComment--->', newComment)
-this.setState((currentState) => {
-  const newState = [...currentState.comments]
-  newState.unshift(newComment)
-  console.log('newState--->', newState)
-  return {comments: newState}
-})
-  }
- 
+    console.log("newComment--->", newComment);
+    this.setState((currentState) => {
+      const newState = [...currentState.comments];
+      newState.unshift(newComment);
+      console.log("newState--->", newState);
+      return { comments: newState };
+    });
+  };
+
   render() {
     if (this.state.isLoading) {
       return <Load />;
+    } else if (this.state.comments.length === 0) {
+      return (
+        <div style={{width: "90vw"}}>
+          <PostComment id={this.props.id} addComment={this.addComment} />
+        </div>
+      );
     } else {
       const valForMonExt = arrayConvertor(
         this.state.comments,
@@ -93,9 +99,7 @@ this.setState((currentState) => {
                       name="Transport: "
                       starSpacing={"0.1em"}
                     />
-                    <p className="comment-ratings">
-                      Transport: {comment.transport}
-                    </p>
+                    <p className="comment-ratings">Transport</p>
                     <StarRatings
                       rating={comment.transport}
                       starRatedColor="rgb(212,175,55)"
@@ -105,9 +109,7 @@ this.setState((currentState) => {
                       name="Transport: "
                       starSpacing={"0.1em"}
                     />
-                    <p className="comment-ratings">
-                      Pubs near to ground: {comment.pubsNearGround}
-                    </p>
+                    <p className="comment-ratings">Pubs near to ground</p>
                     <StarRatings
                       rating={comment.pubsNearGround}
                       starRatedColor="rgb(212,175,55)"

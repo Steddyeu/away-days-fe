@@ -6,14 +6,14 @@ import IndividualStadium from './components/IndividualStadium'
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Hero path="/" />
+      <div className="App">
+        <Router>
+          <Hero path="/" />
 
-        <StadiumsList path="/countries/:country" />
-        <IndividualStadium path='/stadiums/:stadiumId' />
-      </Router>
-    </div>
+          <StadiumsList path="/countries/:country" />
+          <IndividualStadium path="/stadiums/:stadiumId" />
+        </Router>
+      </div>
   );
 }
 

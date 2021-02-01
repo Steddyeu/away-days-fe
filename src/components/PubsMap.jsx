@@ -38,7 +38,7 @@ export class PubsMap extends Component {
     };
     const containerStyle = {
       position: "relative",
-      width: "80vw",
+      width: "85vw",
       height: "50vh",
     };
 

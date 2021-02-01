@@ -9,7 +9,6 @@ export default function Load() {
         color="rgb(13, 99, 32)"
         height={100}
         width={100}
-        timeout={3000} //3 secs
       />
     );
   

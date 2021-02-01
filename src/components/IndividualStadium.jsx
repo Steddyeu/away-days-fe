@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from '@reach/router';
-import * as api from '../apiReq';
-import Load from './Load';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import PubsMap from './PubsMap';
-import Comments from './Comments';
-
+import React, { Component } from "react";
+import { Link } from "@reach/router";
+import * as api from "../apiReq";
+import Load from "./Load";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle, faHome, faUndoAlt } from "@fortawesome/free-solid-svg-icons";
+import PubsMap from "./PubsMap";
+import Comments from "./Comments";
 
 export default class IndividualStadium extends Component {
   state = { stadium: {}, isLoading: true };
@@ -16,6 +15,10 @@ export default class IndividualStadium extends Component {
     api.getStadiumById(id).then((stadium) => {
       this.setState({ stadium, isLoading: false });
     });
+  }
+
+  goBack() {
+    window.history.back();
   }
 
   render() {
@@ -31,13 +34,11 @@ export default class IndividualStadium extends Component {
             style={{ backgroundImage: `url(${this.state.stadium.picture})` }}
             className="individual-stadium-picture-container"
           >
-           
-
             <div className={"individual-stadium-info-container"}>
               <img
                 src={this.state.stadium.logo}
                 className={"individual-stadium-club-logo"}
-                alt='club logo'
+                alt="club logo"
               ></img>
               <h1 className={"individual-stadium-club-name"}>
                 <FontAwesomeIcon className={"sign-nail-icon"} icon={faCircle} />
@@ -63,11 +64,22 @@ export default class IndividualStadium extends Component {
             />
           </div>
           <div>
-            <Comments id={this.props.stadiumId}/>
+            <Comments id={this.props.stadiumId} />
           </div>
-          <Link className={"individual-stadium-home-button-link"} to="/">
-            <button className={"individual-stadium-home-button"}>Home page</button>
-          </Link>
+          <div className="individual-stadium-button-container">
+            <Link to="/">
+              <button className={"individual-stadium-home-button"}>
+                <FontAwesomeIcon className="button-icon" icon={faHome} />
+              </button>
+            </Link>
+
+            <button
+              onClick={() => this.goBack()}
+              className={"individual-stadium-home-button"}
+            >
+              <FontAwesomeIcon className="button-icon" icon={faUndoAlt} />
+            </button>
+          </div>
         </div>
       );
     }
