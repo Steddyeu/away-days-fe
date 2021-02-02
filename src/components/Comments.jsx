@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import * as api from "../apiReq";
-import Load from "./Load";
-import { arrayConvertor, average, getTimeAgo } from "../utils";
-import StarRatings from "react-star-ratings";
-import PostComment from "./PostComment";
+import React, { Component } from 'react';
+import * as api from '../apiReq';
+import Load from './Load';
+import { arrayConvertor, average, getTimeAgo } from '../utils';
+import StarRatings from 'react-star-ratings';
+import PostComment from './PostComment';
 
 export default class Comments extends Component {
   state = {
@@ -19,11 +19,11 @@ export default class Comments extends Component {
   }
 
   addComment = (newComment) => {
-    console.log("newComment--->", newComment);
+    console.log('newComment--->', newComment);
     this.setState((currentState) => {
       const newState = [...currentState.comments];
       newState.unshift(newComment);
-      console.log("newState--->", newState);
+      console.log('newState--->', newState);
       return { comments: newState };
     });
   };
@@ -33,17 +33,17 @@ export default class Comments extends Component {
       return <Load />;
     } else if (this.state.comments.length === 0) {
       return (
-        <div style={{width: "90vw"}}>
+        <div>
           <PostComment id={this.props.id} addComment={this.addComment} />
         </div>
       );
     } else {
       const valForMonExt = arrayConvertor(
         this.state.comments,
-        "valueForMoneyInGround"
+        'valueForMoneyInGround'
       );
-      const transportExt = arrayConvertor(this.state.comments, "transport");
-      const PubsExt = arrayConvertor(this.state.comments, "pubsNearGround");
+      const transportExt = arrayConvertor(this.state.comments, 'transport');
+      const PubsExt = arrayConvertor(this.state.comments, 'pubsNearGround');
 
       return (
         <div className="comments-containter">
@@ -53,30 +53,30 @@ export default class Comments extends Component {
               rating={average(transportExt)}
               starRatedColor="rgb(212,175,55)"
               changeRating={this.changeRating}
-              starDimension={"1em"}
+              starDimension={'1em'}
               numberOfStars={10}
               name="Transport: "
-              starSpacing={"0.1em"}
+              starSpacing={'0.1em'}
             />
             <h4>Pubs near to ground</h4>
             <StarRatings
               rating={average(PubsExt)}
               starRatedColor="rgb(212,175,55)"
               changeRating={this.changeRating}
-              starDimension={"1em"}
+              starDimension={'1em'}
               numberOfStars={10}
               name="Transport: "
-              starSpacing={"0.1em"}
+              starSpacing={'0.1em'}
             />
             <h4>Value for money in stadium</h4>
             <StarRatings
               rating={average(valForMonExt)}
               starRatedColor="rgb(212,175,55)"
               changeRating={this.changeRating}
-              starDimension={"1em"}
+              starDimension={'1em'}
               numberOfStars={10}
               name="Transport: "
-              starSpacing={"0.1em"}
+              starSpacing={'0.1em'}
             />
           </div>
           <div>
@@ -94,30 +94,30 @@ export default class Comments extends Component {
                       rating={comment.valueForMoneyInGround}
                       starRatedColor="rgb(212,175,55)"
                       changeRating={this.changeRating}
-                      starDimension={"1em"}
+                      starDimension={'1em'}
                       numberOfStars={10}
                       name="Transport: "
-                      starSpacing={"0.1em"}
+                      starSpacing={'0.1em'}
                     />
                     <p className="comment-ratings">Transport</p>
                     <StarRatings
                       rating={comment.transport}
                       starRatedColor="rgb(212,175,55)"
                       changeRating={this.changeRating}
-                      starDimension={"1em"}
+                      starDimension={'1em'}
                       numberOfStars={10}
                       name="Transport: "
-                      starSpacing={"0.1em"}
+                      starSpacing={'0.1em'}
                     />
                     <p className="comment-ratings">Pubs near to ground</p>
                     <StarRatings
                       rating={comment.pubsNearGround}
                       starRatedColor="rgb(212,175,55)"
                       changeRating={this.changeRating}
-                      starDimension={"1em"}
+                      starDimension={'1em'}
                       numberOfStars={10}
                       name="Transport: "
-                      starSpacing={"0.1em"}
+                      starSpacing={'0.1em'}
                     />
                     <p className="time-stamp">
                       {getTimeAgo(comment.created_at)}

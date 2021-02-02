@@ -1,16 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   outline: none;
 }
 body {
-  background-image: url("./assets/footballgrass.jpeg");
-}
+  background: rgb(212, 212, 212);
 
+  /* background-image: url("./assets/footballgrass.jpeg");
+} */
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -20,7 +22,8 @@ body {
 
 .hero {
   min-height: 100vh;
-  background-image: url("./assets/background.jpeg");
+  background-size: cover;
+  background-image: url('./assets/background.jpeg');
   text-align: center;
   display: flex;
   align-items: center;
@@ -28,7 +31,6 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-
 }
 
 .hero-title {
@@ -92,6 +94,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  /* background-image: url('./assets/footballgrass.jpeg'); */
 }
 
 /* searchstadiumlist */
@@ -144,7 +148,7 @@ body {
 @media screen and (max-width: 900px) {
   .stadium-card {
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-size: 0.8em;
     width: 80vw;
@@ -164,7 +168,7 @@ body {
 @media screen and (max-width: 681px) {
   .stadium-card {
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-size: 0.8em;
   }
@@ -178,7 +182,7 @@ body {
 @media screen and (max-width: 482px) {
   .stadium-card {
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     font-size: 0.5em;
   }
@@ -190,6 +194,11 @@ body {
 }
 
 /* Stadiums List */
+
+.stadiums-list-page-container {
+  background-image: url('./assets/footballgrass.jpeg');
+}
+
 .stadiums-list-country {
   display: flex;
   align-items: center;
@@ -349,13 +358,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
+  width: 100%;
 }
 
 .individual-stadium-picture-container {
-  background-image: url("https://www.stadiumguide.com/wp-content/uploads/villapark_front.jpg");
+  background-image: url('https://www.stadiumguide.com/wp-content/uploads/villapark_front.jpg');
   background-size: cover;
-  height: 55vh;
+  height: 70vh;
   font-size: 0.9em;
   width: 100%;
   border-bottom-left-radius: 50%;
@@ -368,8 +377,8 @@ body {
 }
 
 .individual-stadium-club-logo {
-  height: 6em;
-  width: 6em;
+  height: 10em;
+  width: 10em;
 }
 
 .individual-stadium-info-container {
@@ -438,8 +447,9 @@ body {
   color: white;
   /* background-color: whitesmoke; */
   font-size: 0.8rem;
-  width: 90vw;
+  width: 90%;
   text-align: center;
+  padding: 1em;
 }
 
 .map-container {
@@ -452,8 +462,15 @@ body {
 }
 
 @media screen and (max-width: 440px) {
+  .individual-stadium-picture-container {
+    height: 50vh;
+  }
   .individual-stadium-club-name {
     font-size: 1.2em;
+  }
+  .individual-stadium-club-logo {
+    height: 7em;
+    width: 7em;
   }
 
   .individual-stadium-home-button {
@@ -465,8 +482,9 @@ body {
 .comments-containter {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
+  width: 90%;
 }
 
 .comments-containter h1 {
@@ -481,7 +499,8 @@ body {
   border-radius: 40px;
   margin-bottom: 1em;
   padding: 1em;
-  width: 90vw;
+  width: 100%;
+  /* width: 90vw; */
   color: aliceblue;
   text-align: center;
   color: black;

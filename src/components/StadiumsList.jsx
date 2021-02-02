@@ -24,7 +24,7 @@ export default class StadiumsList extends Component {
       return <Load />;
     } else {
       return (
-        <div>
+        <div className={'stadiums-list-page-container'}>
           <Link to="/">
             {' '}
             <button className="home-button">Home</button>
