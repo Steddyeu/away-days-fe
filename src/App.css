@@ -477,6 +477,13 @@ body {
 
   .individual-stadium-home-button {
     font-size: 1em;
+    background-color: none;
+    border: none;
+  }
+
+  .home-button {
+    background-color: none;
+    border: none;
   }
 }
 
