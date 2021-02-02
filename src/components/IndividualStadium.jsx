@@ -6,15 +6,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faHome, faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import PubsMap from './PubsMap';
 import Comments from './Comments';
+import Error from './Error';
 
 export default class IndividualStadium extends Component {
-  state = { stadium: {}, isLoading: true };
+  state = { stadium: {}, isLoading: true, isError: false };
 
   componentDidMount() {
     const id = this.props.stadiumId;
     api.getStadiumById(id).then((stadium) => {
       this.setState({ stadium, isLoading: false });
-    });
+    }).catch((err) => {
+      console.log(err)
+      this.setState({ isError: true, isLoading: false });
+    })
   }
 
   goBack() {
@@ -24,6 +28,8 @@ export default class IndividualStadium extends Component {
   render() {
     if (this.state.isLoading) {
       return <Load />;
+    } else if(this.state.isError) {
+      return <Error />
     } else {
       return (
         <div

@@ -24,4 +24,4 @@ yarn-error.log*
 
 # apiKey
 key.js
-
+.env

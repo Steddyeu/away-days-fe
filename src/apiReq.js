@@ -14,7 +14,6 @@ export const getStadiumsByCountry = (country) => {
       `https://frozen-scrubland-34339.herokuapp.com/api/countries/${country}`
     )
     .then((res) => {
-      // console.log(res.data.stadiums);
       return res.data.stadiums;
     });
 };
@@ -25,7 +24,6 @@ export const getStadiumById = (stadiumId) => {
       `https://frozen-scrubland-34339.herokuapp.com/api/stadiums/${stadiumId}`
     )
     .then((res) => {
-      // console.log(res.data);
       return res.data.stadium;
     });
 };

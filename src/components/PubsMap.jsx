@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import * as api from '../apiReq';
 import Load from './Load';
-import key from '../key';
+
+const key = process.env.REACT_APP_API_KEY
+
 export class PubsMap extends Component {
   state = {
     pubs: [],
@@ -30,7 +32,6 @@ export class PubsMap extends Component {
 
   render() {
     const { google } = this.props;
-    console.log(key);
 
     const style = {
       position: 'relative',
@@ -41,7 +42,7 @@ export class PubsMap extends Component {
 
     let containerStyle = {
       position: 'relative',
-      height: '45vh',
+      height: '50vh',
     };
 
     if (this.state.isDesktop) {
@@ -77,6 +78,7 @@ export class PubsMap extends Component {
           {this.state.pubs.map((pub) => {
             return (
               <Marker
+              key={pub.name}
                 position={{ lat: pub.lat, lng: pub.long }}
                 onClick={this.onMarkerClick}
                 name={pub.name}
