@@ -3,10 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUndoAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function ComingSoon() {
+  
+  
+  const goBack =  () => {
+    window.history.back();
+  };
+
   return (
     <div className="no-stadiums-list">
       <button
-        onClick={() => this.goBack()}
+        onClick={() => goBack()}
         className={"individual-stadium-home-button"}
       >
         <FontAwesomeIcon className="button-icon" icon={faUndoAlt} />
