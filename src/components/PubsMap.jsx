@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import * as api from '../apiReq';
-import Load from './Load';
-import stadiumImg from '../assets/stadium.png';
-import beerImg from '../assets/beer.svg';
+import React, { Component } from "react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import * as api from "../apiReq";
+import Load from "./Load";
+import stadiumImg from "../assets/stadium.png";
+import beerImg from "../assets/beer.svg";
 
+let key = "";
 
-
-const key = process.env.REACT_APP_API_KEY
+process.env.NODE_ENV === "development"
+  ? (key = process.env.REACT_APP_API_KEY)
+  : (key = process.env.REACT_APP_PROD_API_KEY);
 
 export class PubsMap extends Component {
   state = {
@@ -38,21 +40,21 @@ export class PubsMap extends Component {
     const { google } = this.props;
 
     const style = {
-      position: 'relative',
-      width: '100%',
-      height: '100%',
-      overflow: 'auto',
+      position: "relative",
+      width: "100%",
+      height: "100%",
+      overflow: "auto",
     };
 
     let containerStyle = {
-      position: 'relative',
-      height: '50vh',
+      position: "relative",
+      height: "50vh",
     };
 
     if (this.state.isDesktop) {
-      containerStyle.width = '60vw';
+      containerStyle.width = "60vw";
     } else {
-      containerStyle.width = '85vw';
+      containerStyle.width = "85vw";
     }
 
     if (this.state.isLoading) {
@@ -81,7 +83,7 @@ export class PubsMap extends Component {
           {this.state.pubs.map((pub) => {
             return (
               <Marker
-              key={pub.lat}
+                key={pub.lat}
                 position={{ lat: pub.lat, lng: pub.long }}
                 onClick={this.onMarkerClick}
                 name={pub.name}
