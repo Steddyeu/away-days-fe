@@ -10,7 +10,6 @@ let key = "";
 process.env.NODE_ENV === "development"
   ? (key = process.env.REACT_APP_API_KEY)
   : (key = process.env.REACT_APP_PROD_API_KEY);
-console.log('here---->', process.env)
 
 
 
