@@ -33,7 +33,7 @@ export default class Comments extends Component {
       return <Load />;
     } else if (this.state.comments.length === 0) {
       return (
-        <div>
+        <div className={'comments-container'}>
           <PostComment id={this.props.id} addComment={this.addComment} />
         </div>
       );
