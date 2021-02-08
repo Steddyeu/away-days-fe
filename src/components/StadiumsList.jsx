@@ -55,7 +55,7 @@ export default class StadiumsList extends Component {
           <div className="stadiums-list-country">
             {this.state.stadiums.map((stadium) => {
               return (
-                <Link to={`/stadiums/${stadium.stadium_id}`}>
+                <Link key={stadium.stadium_id} to={`/stadiums/${stadium.stadium_id}`}>
                   <div
                     className="country-stadium-card"
                     key={stadium.stadium_id}

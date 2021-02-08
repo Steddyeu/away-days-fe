@@ -9,7 +9,7 @@ export default function Flags() {
     <div className="flags-container">
       {countries.map((country) => {
         return (
-          <Link to={`/countries/${country}`}>
+          <Link key={country} to={`/countries/${country}`}>
             <img
               className="flags"
               src={`images/${country}.png`}

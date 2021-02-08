@@ -3,7 +3,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import * as api from '../apiReq';
 import Load from './Load';
 
-const key = process.env.REACT_APP_API_KEY
+const key = process.env.MAPS_KEY
 
 export class PubsMap extends Component {
   state = {
@@ -78,7 +78,7 @@ export class PubsMap extends Component {
           {this.state.pubs.map((pub) => {
             return (
               <Marker
-              key={pub.name}
+              key={pub.lat}
                 position={{ lat: pub.lat, lng: pub.long }}
                 onClick={this.onMarkerClick}
                 name={pub.name}
